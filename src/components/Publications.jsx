@@ -16,9 +16,9 @@ function renderAuthors(authors, highlightedAuthor) {
   })
 }
 
-function Publications({ data, highlightedAuthor }) {
+function Publications({ data, highlightedAuthor, title }) {
   return (
-    <Section id="publications" title="PUBLICATIONS" titleClassName="tracking-[0.18em]">
+    <Section id="publications" title={title} titleClassName="tracking-[0.18em]">
       <div className="overflow-hidden rounded-xl border border-cardBorder bg-white">
         {data.map((item, index) => (
           <article

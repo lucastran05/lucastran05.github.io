@@ -1,20 +1,64 @@
 import { useEffect, useMemo, useState } from 'react'
-import Awards from './components/Awards'
+import Achievements from './components/Achievements'
+import BackToTop from './components/BackToTop'
+import Certifications from './components/Certifications'
 import Education from './components/Education'
-import Experience from './components/Experience'
+import Footer from './components/Footer'
 import Hero from './components/Hero'
+import Loading from './components/Loading'
+import Projects from './components/Projects'
 import Publications from './components/Publications'
-import Section from './components/Section'
 import Sidebar from './components/Sidebar'
+import Skills from './components/Skills'
 import profile from './data/profile'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [language, setLanguage] = useState(profile.defaultLocale)
   const [activeSection, setActiveSection] = useState(profile.navigation[0]?.id)
+  const content = profile.i18n[language]
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 800)
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 300)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const sectionIds = useMemo(
     () => profile.navigation.map((item) => item.id),
     [],
   )
+
+  useEffect(() => {
+    document.documentElement.lang = language
+    document.title = content.seo.title
+
+    const upsertMeta = (name, key, value) => {
+      let tag = document.querySelector(`meta[${name}="${key}"]`)
+      if (!tag) {
+        tag = document.createElement('meta')
+        tag.setAttribute(name, key)
+        document.head.appendChild(tag)
+      }
+      tag.setAttribute('content', value)
+    }
+
+    upsertMeta('name', 'description', content.seo.description)
+    upsertMeta('name', 'keywords', content.seo.keywords)
+    upsertMeta('property', 'og:title', content.seo.title)
+    upsertMeta('property', 'og:description', content.seo.description)
+    upsertMeta('property', 'og:locale', language === 'vi' ? 'vi_VN' : 'en_US')
+    upsertMeta('name', 'twitter:title', content.seo.title)
+    upsertMeta('name', 'twitter:description', content.seo.description)
+  }, [content.seo.description, content.seo.keywords, content.seo.title, language])
 
   useEffect(() => {
     const observers = []
@@ -55,40 +99,39 @@ function App() {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
+  const toggleLanguage = () => {
+    setLanguage((prev) => (prev === 'vi' ? 'en' : 'vi'))
+  }
+
+  if (isLoading) {
+    return <Loading />
+  }
+
   return (
     <div className="min-h-screen bg-slateBg text-navyText">
       <div className="w-full px-4 py-4 sm:px-6 lg:px-8 lg:py-6">
         <Sidebar
           profile={profile}
+          content={content}
+          language={language}
           activeSection={activeSection}
           onNavigate={handleNavigate}
+          onToggleLanguage={toggleLanguage}
         />
 
         <main className="space-y-5 lg:ml-[22.5rem]">
-          <Hero hero={profile.hero} personal={profile.personal} />
+          <Hero hero={content.hero} personal={profile.personal} />
 
-          <Education data={profile.education} />
-          <Experience data={profile.experience} />
-
-          <Section id="latest-news" title="Latest News">
-            <div className="space-y-3">
-              {profile.latestNews.map((item) => (
-                <article
-                  key={item.title}
-                  className="rounded-xl border border-cardBorder bg-white px-4 py-3 shadow-card"
-                >
-                  <p className="text-sm font-semibold text-slate-500">{item.date}</p>
-                  <h3 className="mt-1 text-base font-semibold text-navyText">{item.title}</h3>
-                  <p className="mt-2 text-sm text-slate-600">{item.description}</p>
-                </article>
-              ))}
-            </div>
-          </Section>
-
-          <Awards data={profile.awards} />
-          <Publications data={profile.publications} highlightedAuthor={profile.personal.name} />
+          <Education data={content.education} title={content.labels.education} gpaLabel={content.labels.gpa} />
+          <Skills data={content.skills} title={content.labels.skills} />
+          <Projects data={content.projects} title={content.labels.projects} />
+          <Certifications data={content.certifications} title={content.labels.certifications} />
+          <Achievements data={content.achievements} title={content.labels.achievements} />
+          <Publications data={profile.publications} highlightedAuthor={profile.personal.name} title={content.labels.publications} />
+          <Footer />
         </main>
       </div>
+      <BackToTop show={isScrolled} />
     </div>
   )
 }

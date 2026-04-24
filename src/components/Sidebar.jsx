@@ -2,9 +2,12 @@ import {
   Award,
   BookOpenText,
   Briefcase,
+  Code2,
+  Globe,
   GraduationCap,
   Mail,
   Newspaper,
+  Phone,
 } from 'lucide-react'
 
 const navigationIcons = {
@@ -17,12 +20,12 @@ const navigationIcons = {
 
 const contactIcons = {
   mail: Mail,
-  github: Briefcase,
-  graduation: GraduationCap,
+  github: Code2,
+  graduation: Phone,
   linkedin: Newspaper,
 }
 
-function Sidebar({ profile, activeSection, onNavigate }) {
+function Sidebar({ profile, content, activeSection, onNavigate, onToggleLanguage }) {
   return (
     <aside className="mb-5 rounded-2xl border border-cardBorder bg-white p-5 shadow-card lg:fixed lg:top-6 lg:h-[calc(100vh-3rem)] lg:w-[20.75rem] lg:p-6">
       <div className="flex h-full flex-col">
@@ -34,7 +37,7 @@ function Sidebar({ profile, activeSection, onNavigate }) {
           />
           <div>
             <h2 className="text-xl font-bold text-navyText lg:text-2xl">{profile.personal.name}</h2>
-            <p className="mt-1 text-sm text-slate-600">{profile.personal.subtitle}</p>
+            <p className="mt-1 text-sm text-slate-600">{content.personal.subtitle}</p>
           </div>
         </div>
 
@@ -42,9 +45,9 @@ function Sidebar({ profile, activeSection, onNavigate }) {
           href={profile.personal.cvUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-5 inline-flex items-center justify-center rounded-xl bg-navyText px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-navyText px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
         >
-          Download CV (PDF)
+          {content.labels.downloadCv}
         </a>
 
         <nav className="mt-5 space-y-1.5">
@@ -64,7 +67,7 @@ function Sidebar({ profile, activeSection, onNavigate }) {
                 }`}
               >
                 <Icon size={16} />
-                <span>{item.label}</span>
+                <span>{content.navigation[item.id]}</span>
               </button>
             )
           })}
@@ -88,6 +91,15 @@ function Sidebar({ profile, activeSection, onNavigate }) {
                 </a>
               )
             })}
+            <button
+              type="button"
+              onClick={onToggleLanguage}
+              aria-label="Switch language"
+              title={`${content.languageLabel} / ${content.switchLanguageLabel}`}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-cardBorder text-slate-600 transition hover:border-slate-400 hover:text-navyText"
+            >
+              <Globe size={16} />
+            </button>
           </div>
         </div>
       </div>

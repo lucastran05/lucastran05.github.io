@@ -1,8 +1,8 @@
 import Section from './Section'
 
-function Awards({ data }) {
+function Awards({ data, title }) {
   return (
-    <Section id="awards" title="Awards">
+    <Section id="awards" title={title}>
       <div className="space-y-3">
         {data.map((item) => (
           <article key={item.title} className="rounded-xl border border-cardBorder bg-white p-4 sm:p-5">

@@ -1,13 +1,13 @@
 import Section from './Section'
 
-function Experience({ data, title }) {
+function Achievements({ data, title }) {
   return (
-    <Section id="experience" title={title}>
+    <Section id="achievements" title={title}>
       <div className="space-y-3">
         {data.map((item) => (
           <article key={item.title} className="rounded-xl border border-cardBorder bg-white p-4 sm:p-5">
             <h3 className="text-base font-semibold text-navyText sm:text-lg">{item.title}</h3>
-            <p className="mt-2 text-sm leading-7 text-slate-600">{item.description}</p>
+            <p className="mt-2 text-sm text-slate-600">{item.detail}</p>
           </article>
         ))}
       </div>
@@ -15,4 +15,4 @@ function Experience({ data, title }) {
   )
 }
 
-export default Experience
+export default Achievements
