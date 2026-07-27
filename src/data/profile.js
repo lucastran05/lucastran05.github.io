@@ -17,7 +17,7 @@ const profile = {
     { label: 'Email', icon: 'mail', url: 'mailto:trancuong13112005@gmail.com' },
     { label: 'GitHub', icon: 'github', url: 'https://github.com/lucastran05' },
     { label: 'Phone', icon: 'graduation', url: 'tel:0389433762' },
-    { label: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/' },
+    { label: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/tran-quoc-cuong-b4a72730a/?locale=en' },
   ],
   i18n: {
     vi: {
@@ -45,17 +45,7 @@ const profile = {
       hero: {
         heading: 'Xin chào, tôi là Trần Quốc Cường.',
         intro:
-          'Sinh viên An toàn Thông tin tại PTIT với đam mê Penetration Testing và Red Team. Tôi tích cực tìm kiếm cơ hội thực tập để nâng cao kỹ năng kiểm thử bảo mật, phân tích lỗ hổng và mô phỏng tấn công. Kinh nghiệm thực hành trên TryHackMe, HackTheBox, picoCTF và các lab bảo mật thực tế.',
-        info: [
-          {
-            label: 'Hướng nghiên cứu',
-            value: 'Penetration Testing, Red Team, Web Security, Network Security, Cryptography',
-          },
-          {
-            label: 'Lập trình',
-            value: 'C, C++, Java, JavaScript, Python, PHP',
-          },
-        ],
+          'Sinh viên An toàn Thông tin tại PTIT với đam mê Penetration Testing và Red Team. Ngắn hạn, tôi tích cực tìm kiếm vị trí Intern/Junior Penetration Tester hoặc Security Analyst để áp dụng kiến thức kiểm thử xâm nhập, phân tích và khai thác lỗ hổng trong môi trường thực tế. Dài hạn, tôi hướng tới trở thành Red Team Specialist/Pentester chuyên sâu, có khả năng thực hiện các chiến dịch kiểm thử bảo mật toàn diện và mô phỏng tấn công thực tế. Kinh nghiệm thực hành trên TryHackMe, HackTheBox, picoCTF và các lab bảo mật thực tế.',
       },
       education: [
         {
@@ -65,7 +55,7 @@ const profile = {
           gpa: '3.34 / 4.0',
           highlights: [
             'Học bổng Khuyến khích học tập (Academic Scholarship)',
-            'Các môn học: An toàn Thông tin cơ bản (A), Mạng máy tính (B+)',
+            'Các môn học: Cơ sở An toàn thông tin (A), Mạng máy tính (B+)',
           ],
         },
       ],
@@ -186,17 +176,7 @@ const profile = {
       hero: {
         heading: "Hello, I'm Trần Quốc Cường.",
         intro:
-          'Information Security student at PTIT with a passion for Penetration Testing and Red Team operations. Actively seeking internship opportunities to advance my vulnerability assessment and attack simulation skills. Hands-on experience with TryHackMe, HackTheBox, picoCTF, and real-world security labs.',
-        info: [
-          {
-            label: 'Research Interest',
-            value: 'Penetration Testing, Red Team, Web Security, Network Security, Cryptography',
-          },
-          {
-            label: 'Programming',
-            value: 'C, C++, Java, JavaScript, Python, PHP',
-          },
-        ],
+          'Information Security student at PTIT with a passion for Penetration Testing and Red Team operations. Short-term, I\'m actively seeking an Intern/Junior Penetration Tester or Security Analyst position where I can apply my knowledge of penetration testing, vulnerability analysis, and exploitation in real-world environments. Long-term, I aim to develop into a Red Team Specialist/Penetration Tester, capable of conducting full-scope security assessments and realistic adversary simulations to strengthen organizational security posture. Hands-on experience with TryHackMe, HackTheBox, picoCTF, and real-world security labs.',
       },
       education: [
         {
@@ -303,24 +283,7 @@ const profile = {
           'Trần Quốc Cường, PTIT, Penetration Testing, Red Team, Information Security, Cybersecurity, HackTheBox, CTF, Security Skills',
       },
     },
-  },
-  publications: [
-    {
-      title:
-        'Linux Log Anomaly Detection Using Machine Learning - A Practical Approach',
-      authors: ['Trần Quốc Cường'],
-      venue: 'PTIT Internal Research Report',
-      year: '2026',
-      pdf: '/papers/paper-1.pdf',
-    },
-    {
-      title: 'Deep Dive into CVE-2023-48223: JWT Algorithm Confusion Attack',
-      authors: ['Trần Quốc Cường'],
-      venue: 'Security Research Blog',
-      year: '2026',
-      pdf: '/papers/paper-2.pdf',
-    },
-  ],
+  }
 }
 
 export default profile

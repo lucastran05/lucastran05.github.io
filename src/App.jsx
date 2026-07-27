@@ -7,7 +7,6 @@ import Footer from './components/Footer'
 import Hero from './components/Hero'
 import Loading from './components/Loading'
 import Projects from './components/Projects'
-import Publications from './components/Publications'
 import Sidebar from './components/Sidebar'
 import Skills from './components/Skills'
 import profile from './data/profile'
@@ -127,7 +126,6 @@ function App() {
           <Projects data={content.projects} title={content.labels.projects} />
           <Certifications data={content.certifications} title={content.labels.certifications} />
           <Achievements data={content.achievements} title={content.labels.achievements} />
-          <Publications data={profile.publications} highlightedAuthor={profile.personal.name} title={content.labels.publications} />
           <Footer />
         </main>
       </div>
