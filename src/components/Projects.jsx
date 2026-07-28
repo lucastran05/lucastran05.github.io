@@ -1,10 +1,16 @@
+import { useState } from 'react'
 import Section from './Section'
 
-function Projects({ data, title }) {
+function Projects({ data, title, labels }) {
+  const [showAll, setShowAll] = useState(false)
+
+  const visibleProjects = showAll ? data : data.slice(0, 2)
+  const hasMore = data.length > 2
+
   return (
     <Section id="projects" title={title}>
       <div className="space-y-4">
-        {data.map((project) => (
+        {visibleProjects.map((project) => (
           <article key={project.title} className="rounded-xl border border-cardBorder bg-white p-4 sm:p-5">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div className="flex-1">
@@ -34,8 +40,21 @@ function Projects({ data, title }) {
           </article>
         ))}
       </div>
+
+      {hasMore && (
+        <div className="mt-5 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll(!showAll)}
+            className="inline-flex items-center justify-center rounded-xl border border-cardBorder bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-navyText"
+          >
+            {showAll ? labels.showLess : labels.showMore}
+          </button>
+        </div>
+      )}
     </Section>
   )
 }
 
 export default Projects
+

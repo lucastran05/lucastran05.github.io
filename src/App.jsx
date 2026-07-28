@@ -123,7 +123,7 @@ function App() {
 
           <Education data={content.education} title={content.labels.education} gpaLabel={content.labels.gpa} />
           <Skills data={content.skills} title={content.labels.skills} />
-          <Projects data={content.projects} title={content.labels.projects} />
+          <Projects data={content.projects} title={content.labels.projects} labels={content.labels} />
           <Certifications data={content.certifications} title={content.labels.certifications} />
           <Achievements data={content.achievements} title={content.labels.achievements} />
           <Footer />

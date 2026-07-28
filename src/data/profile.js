@@ -3,7 +3,7 @@ const profile = {
   defaultLocale: 'en',
   personal: {
     name: 'Trần Quốc Cường',
-    avatar: '/avatar.jpg',
+    avatar: '/avatar.png',
     cvUrl: '/cv.pdf',
   },
   navigation: [
@@ -34,6 +34,8 @@ const profile = {
         certifications: 'Chứng chỉ',
         achievements: 'Thành tích',
         gpa: 'GPA',
+        showMore: 'Xem thêm',
+        showLess: 'Thu gọn',
       },
       navigation: {
         education: 'Học vấn',
@@ -101,6 +103,20 @@ const profile = {
           github: 'https://github.com/lucastran05/linux-log-anomaly-detection-PYP',
         },
         {
+          title: 'CVE-2026-29000: JWT Authentication Bypass Analysis',
+          date: '05/2026 - 06/2026',
+          technologies: 'Java, JWT, JWE, Pac4j, Spring Boot',
+          description:
+            'Phân tích sâu lỗ hổng CVE-2026-29000 trong thư viện xác thực Pac4j.',
+          highlights: [
+            'Phân tích CVE-2026-29000, một lỗ hổng nghiêm trọng bypass xác thực JWT trong thư viện pac4j-jwt.',
+            'Nghiên cứu nguyên nhân gốc rễ trong JwtAuthenticator liên quan đến việc xử lý không đúng các token PlainJWT không ký được đóng gói bên trong JWE.',
+            'Thực hiện kiểm duyệt mã nguồn và phân tích bản vá lỗi trên các phiên bản bị ảnh hưởng (nhánh 4.x, 5.x, 6.x).',
+            'Xây dựng mã khai thác thử nghiệm (PoC) chứng minh leo thang đặc quyền bằng cách tạo token JWT có thuật toán alg=none được mã hóa dưới dạng JWE.',
+          ],
+          github: 'https://hackmd.io/@a3oVEmssREaHsbt5Z_FZmQ/ByNyUNd-Me',
+        },
+        {
           title: 'CVE-2023-48223 – Algorithm Confusion Exploit Analysis',
           date: '02/2026 - 03/2026',
           technologies: 'Node.js, JWT, Express, fast-jwt',
@@ -165,6 +181,8 @@ const profile = {
         certifications: 'Certifications',
         achievements: 'Achievements',
         gpa: 'GPA',
+        showMore: 'Show More',
+        showLess: 'Show Less',
       },
       navigation: {
         education: 'Education',
@@ -230,6 +248,20 @@ const profile = {
             'Validated detection capability by simulating attacks using Hydra (Kali Linux)',
           ],
           github: 'https://github.com/lucastran05/linux-log-anomaly-detection-PYP',
+        },
+        {
+          title: 'CVE-2026-29000: JWT Authentication Bypass Analysis',
+          date: '05/2026 - 06/2026',
+          technologies: 'Java, JWT, JWE, Pac4j, Spring Boot',
+          description:
+            'In-depth analysis of CVE-2026-29000 vulnerability in Pac4j ',
+          highlights: [
+            'Analyzed CVE-2026-29000, a critical JWT authentication bypass vulnerability in the pac4j-jwt library.',
+            'Investigated the root cause in JwtAuthenticator, identifying improper handling of unsigned PlainJWT tokens encapsulated within JWE.',
+            'Performed source code review and patch analysis across vulnerable and fixed versions (4.x, 5.x, 6.x branches).',
+            'Developed a Proof-of-Concept (PoC) demonstrating privilege escalation by crafting a malicious alg=none JWT encrypted as JWE.',
+          ],
+          github: 'https://hackmd.io/@a3oVEmssREaHsbt5Z_FZmQ/ByNyUNd-Me',
         },
         {
           title: 'CVE-2023-48223 – Algorithm Confusion Exploit Analysis',

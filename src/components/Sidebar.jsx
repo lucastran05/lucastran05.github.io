@@ -33,7 +33,7 @@ function Sidebar({ profile, content, activeSection, onNavigate, onToggleLanguage
           <img
             src={profile.personal.avatar}
             alt={profile.personal.name}
-            className="h-20 w-20 rounded-full border-4 border-slate-100 object-cover shadow-sm lg:h-36 lg:w-36"
+            className="h-28 w-28 rounded-full border-4 border-slate-100 object-cover shadow-sm lg:h-44 lg:w-44"
           />
           <div>
             <h2 className="text-xl font-bold text-navyText lg:text-2xl">{profile.personal.name}</h2>
